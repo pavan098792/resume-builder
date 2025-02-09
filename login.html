@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ResumeCraft</title>
+    <link rel="stylesheet" href="./assets/login.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Side (Image) -->
+        <div class="image-container">
+            <div class="logo-heading">
+                <div class="page-icon"></div> RESUMECRAFT
+            </div>
+            <img src="./assets/login-image.png" alt="Resume Illustration" class="login-image">
+        </div>
+        
+        <!-- Right Side (Login Form) -->
+        <div class="form-container">
+            <h2>Welcome Back!</h2>
+            <p class="subtitle">Your dream job starts with a stunning resume.</p>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" class="input-field">
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" class="input-field">
+            </div>
+
+            <button class="login-btn">Login</button>
+
+            <p class="register-link">Don't have an account? <a href="#">Sign Up</a></p>
+
+            <!-- Skip Button (Centered) -->
+            <div style="display: flex; justify-content: center; margin-top: 15px;">
+                <button onclick="window.location.href='resume.html'" 
+                    style="width: 50%; padding: 12px; background: white; color: black; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px;">
+                    Skip
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

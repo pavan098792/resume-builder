@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Resume Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/resume.css">
+    <style>
+        .sticky-preview {
+            position: sticky;
+            top: 20px;
+            height: calc(100vh - 50px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-6xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-semibold text-center mb-6">ATS Resume Generator</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Resume Form -->
+            <div class="overflow-y-auto max-h-[90vh]">
+                <form id="resume-form" action="generate_pdf.php" method="POST" enctype="multipart/form-data">
+                    <!-- Photo Upload -->
+                    <div class="mb-4 text-center">
+                        <img id="photo-preview" class="w-24 h-24 rounded-full mx-auto border mb-3" src="default-user.png">
+                        <input type="file" name="photo" id="photo-upload" class="hidden" accept="image/*">
+                        <input type="hidden" name="photo_base64" id="photo-base64">
+                        <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded" onclick="document.getElementById('photo-upload').click();">
+                            Upload Photo
+                        </button>
+                    </div>
+
+                    <label class="block text-gray-700 font-medium">Full Name:</label>
+                    <input type="text" name="name" id="name" class="border p-2 w-full mb-4" required>
+
+                    <label class="block text-gray-700 font-medium">Email:</label>
+                    <input type="email" name="email" id="email" class="border p-2 w-full mb-4" required>
+
+                    <label class="block text-gray-700 font-medium">Phone:</label>
+                    <input type="text" name="phone" id="phone" class="border p-2 w-full mb-4" required>
+
+                    <label class="block text-gray-700 font-medium">Professional Summary:</label>
+                    <textarea name="summary" id="summary" class="border p-2 w-full mb-4" rows="3"></textarea>
+
+                    <label class="block text-gray-700 font-medium">Skills:</label>
+                    <textarea name="skills" id="skills" class="border p-2 w-full mb-4" rows="3"></textarea>
+
+                    <div id="experience-sections">
+                        <label class="block text-gray-700 font-medium">Work Experience:</label>
+                        <button type="button" onclick="addExperience()" class="bg-green-500 text-white px-4 py-2 rounded mb-4">+ Add Experience</button>
+                    </div>
+
+                    <div id="custom-sections">
+                        <button type="button" onclick="addCustomSection()" class="bg-purple-500 text-white px-4 py-2 rounded mb-4">+ Add Custom Section</button>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded mt-4">Generate PDF</button>
+                </form>
+            </div>
+
+            <!-- Live Preview (Sticky) -->
+            <div class="sticky-preview">
+                <h3 class="text-lg font-semibold text-center">Live PDF Preview</h3>
+                <iframe id="pdf-preview" class="w-full h-full border mt-4"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/resume.js" defer></script>
+</body>
+</html>
